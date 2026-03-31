@@ -74,8 +74,8 @@ export default function Terms() {
             <h2 className="text-xl font-semibold text-[#E8F4F8] mb-3">8. Contact</h2>
             <p>
               Questions about these terms?{" "}
-              <a href="mailto:hello@visionaquatics.com" className="text-cyan-400 hover:text-cyan-300">
-                hello@visionaquatics.com
+              <a href="mailto:db4471@nyu.edu" className="text-cyan-400 hover:text-cyan-300">
+                db4471@nyu.edu
               </a>
             </p>
           </section>
