@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { DM_Serif_Display, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const inter = Inter({
-  variable: "--font-inter",
+const dmSerifDisplay = DM_Serif_Display({
+  variable: "--font-dm-serif",
   subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -22,13 +24,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vision Aquatics | AI-Powered Aquarium Monitoring",
+  title: "Vision Aquatics | 24/7 Aquarium Monitoring",
   description:
-    "24/7 AI monitoring for your aquarium. Get alerted the moment something looks wrong, before it becomes a disaster.",
+    "Turn a spare phone into a 24/7 aquarium monitor. Computer vision watches your fish, coral, and equipment — and alerts you the moment something looks wrong.",
   openGraph: {
-    title: "Vision Aquatics | AI-Powered Aquarium Monitoring",
+    title: "Vision Aquatics | 24/7 Aquarium Monitoring",
     description:
-      "24/7 AI monitoring for your aquarium. Get alerted the moment something looks wrong, before it becomes a disaster.",
+      "Turn a spare phone into a 24/7 aquarium monitor. Computer vision watches your fish, coral, and equipment — and alerts you the moment something looks wrong.",
     type: "website",
   },
 };
@@ -41,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased font-sans`}
+        className={`${dmSerifDisplay.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <Navbar />
         <main>{children}</main>

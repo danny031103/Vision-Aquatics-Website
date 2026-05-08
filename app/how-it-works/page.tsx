@@ -11,14 +11,23 @@ function PhonePanel() {
   return (
     <div className="relative flex items-center justify-center py-8">
       <div
-        className="w-52 h-96 rounded-[32px] border-2 border-cyan-500/30 bg-[#040D14] relative overflow-hidden"
-        style={{ boxShadow: "0 0 40px rgba(0,229,255,0.08), inset 0 0 20px rgba(0,229,255,0.02)" }}
+        className="w-52 h-96 rounded-[32px] border-2 border-[#3D7EFF]/30 bg-[#040D14] relative overflow-hidden"
+        style={{ boxShadow: "0 0 40px rgba(61,126,255,0.08), inset 0 0 20px rgba(61,126,255,0.02)" }}
       >
         {/* Notch */}
-        <div className="absolute top-3 left-1/2 -translate-x-1/2 w-16 h-5 rounded-full bg-[#071E2E] border border-cyan-500/20 z-10" />
+        <div className="absolute top-3 left-1/2 -translate-x-1/2 w-16 h-5 rounded-full bg-[#071E2E] border border-[#3D7EFF]/20 z-10" />
         {/* Camera viewfinder */}
-        <div className="absolute inset-3 top-10 rounded-2xl bg-[#071E2E] border border-cyan-500/15 overflow-hidden flex items-center justify-center">
-          <span className="text-5xl">🐠</span>
+        <div className="absolute inset-3 top-10 rounded-2xl bg-[#071E2E] border border-[#3D7EFF]/15 overflow-hidden flex items-center justify-center">
+          {/* Crosshair viewfinder */}
+          <div className="relative w-16 h-16 flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-full h-px bg-[#3D7EFF]/30" />
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="h-full w-px bg-[#3D7EFF]/30" />
+            </div>
+            <div className="w-3 h-3 rounded-full border border-[#3D7EFF]/60 bg-transparent" />
+          </div>
           {/* Corner brackets */}
           {[
             "top-2 left-2 border-t border-l",
@@ -26,12 +35,12 @@ function PhonePanel() {
             "bottom-2 left-2 border-b border-l",
             "bottom-2 right-2 border-b border-r",
           ].map((cls) => (
-            <div key={cls} className={`absolute w-4 h-4 border-cyan-400/40 ${cls}`} />
+            <div key={cls} className={`absolute w-4 h-4 border-[#3D7EFF]/40 ${cls}`} />
           ))}
         </div>
         {/* Bottom status */}
-        <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2 bg-[#071E2E] rounded-xl px-3 py-2 border border-cyan-500/15">
-          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shrink-0" />
+        <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2 bg-[#071E2E] rounded-xl px-3 py-2 border border-[#3D7EFF]/15">
+          <span className="w-2 h-2 rounded-full bg-[#3D7EFF] animate-pulse shrink-0" />
           <span className="text-[10px] text-[#7FA8BF] font-mono">Camera active</span>
         </div>
       </div>
@@ -50,13 +59,13 @@ function ScanPanel() {
     <div className="relative py-8 flex items-center justify-center">
       <div className="w-full max-w-sm glass rounded-2xl p-5 space-y-3">
         <div className="flex items-center justify-between mb-1">
-          <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">Live analysis</span>
+          <span className="text-xs font-mono text-[#3D7EFF] tracking-widest uppercase">Live analysis</span>
           <span className="text-[10px] text-[#7FA8BF]">● scanning</span>
         </div>
         {metrics.map((m, i) => (
           <motion.div
             key={m.label}
-            className="flex items-center justify-between py-2 border-b border-cyan-500/10 last:border-0"
+            className="flex items-center justify-between py-2 border-b border-[#3D7EFF]/10 last:border-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: i * 0.12 + 0.2 }}
@@ -81,7 +90,7 @@ function AIPanel() {
     <div className="relative py-8 flex items-center justify-center">
       <div className="w-full max-w-sm glass rounded-2xl p-5 space-y-3">
         <div className="flex items-center justify-between mb-1">
-          <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">AI assessment</span>
+          <span className="text-xs font-mono text-[#3D7EFF] tracking-widest uppercase">AI assessment</span>
           <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#39FF7E]/10 text-[#39FF7E] border border-[#39FF7E]/20">All clear</span>
         </div>
         {signals.map((s, i) => (
@@ -118,7 +127,7 @@ function AlertPanel() {
           transition={{ delay: 0.3, duration: 0.4, ease: "easeOut" }}
         >
           <div className="flex items-start gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-teal-500 flex items-center justify-center shrink-0 mt-0.5">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#3D7EFF] to-[#2B5CE6] flex items-center justify-center shrink-0 mt-0.5">
               <svg width="14" height="14" viewBox="0 0 18 18" fill="none">
                 <ellipse cx="9" cy="9" rx="8" ry="5" stroke="white" strokeWidth="1.5" fill="none"/>
                 <circle cx="9" cy="9" r="2.5" fill="white"/>
@@ -141,7 +150,7 @@ function AlertPanel() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.55 }}
         >
-          <span className="text-[10px] font-mono text-cyan-400 tracking-widest uppercase">Alert log</span>
+          <span className="text-[10px] font-mono text-[#3D7EFF] tracking-widest uppercase">Alert log</span>
           {[
             { time: "2 min ago", msg: "Surface behavior anomaly", color: "#FF6B6B" },
             { time: "Yesterday", msg: "All signals nominal", color: "#39FF7E" },
@@ -211,12 +220,11 @@ export default function HowItWorks() {
           animate="show"
           variants={{ show: { transition: { staggerChildren: 0.1 } } }}
         >
-          <motion.p variants={fadeUp} className="text-cyan-400 text-sm font-medium mb-3 tracking-wide uppercase">
+          <motion.p variants={fadeUp} className="text-[0.7rem] uppercase tracking-[0.22em] text-[#3D7EFF] mb-4 font-medium">
             How it works
           </motion.p>
-          <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Serious monitoring.{" "}
-            <span className="text-gradient">Zero new hardware.</span>
+          <motion.h1 variants={fadeUp} className="text-[clamp(2rem,5.5vw,3.4rem)] font-normal mb-6 leading-[1.1] text-[#EDE8E0]" style={{ fontFamily: "var(--font-dm-serif), Georgia, serif" }}>
+            Serious monitoring. Zero new hardware.
           </motion.h1>
           <motion.p variants={fadeUp} className="text-[#7FA8BF] text-lg leading-relaxed">
             Vision Aquatics turns a spare iPhone into a round-the-clock aquarium guardian.
@@ -248,17 +256,17 @@ export default function HowItWorks() {
                     >
                       {s.num}
                     </span>
-                    <h3 className="text-2xl font-bold mb-4 -mt-2">{s.title}</h3>
+                    <h3 className="text-2xl mb-4 -mt-2 text-[#EDE8E0]" style={{ fontFamily: "var(--font-dm-serif), Georgia, serif", fontWeight: 400 }}>{s.title}</h3>
                     <p className="text-[#7FA8BF] leading-relaxed">{s.body}</p>
                   </div>
 
                   {/* Visual side */}
                   <div
-                    className={`relative bg-[#040D14]/50 border-t md:border-t-0 border-cyan-500/10 flex items-center justify-center px-8 min-h-64 ${
+                    className={`relative bg-[#040D14]/50 border-t md:border-t-0 border-[#3D7EFF]/10 flex items-center justify-center px-8 min-h-64 ${
                       isEven ? "md:border-l" : "md:border-r md:[direction:ltr]"
                     }`}
                     style={{
-                      background: "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(0,229,255,0.04) 0%, transparent 70%)",
+                      background: "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(61,126,255,0.04) 0%, transparent 70%)",
                     }}
                   >
                     {s.visual}
@@ -277,7 +285,7 @@ export default function HowItWorks() {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeUp}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+          <h2 className="text-[clamp(1.85rem,4vw,2.6rem)] font-normal mb-3 text-[#EDE8E0]" style={{ fontFamily: "var(--font-dm-serif), Georgia, serif" }}>
             What Vision Aquatics monitors
           </h2>
           <p className="text-[#7FA8BF] max-w-xl">
@@ -296,9 +304,9 @@ export default function HowItWorks() {
               variants={fadeUp}
               custom={i * 0.15}
             >
-              <div className="text-cyan-400 mt-0.5 shrink-0 transition-transform duration-300 group-hover:scale-110">{m.icon}</div>
+              <div className="text-[#3D7EFF] mt-0.5 shrink-0">{m.icon}</div>
               <div>
-                <h3 className="font-semibold mb-1">{m.title}</h3>
+                <h3 className="text-sm font-medium mb-1 text-[#EDE8E0] tracking-wide">{m.title}</h3>
                 <p className="text-sm text-[#7FA8BF] leading-relaxed">{m.body}</p>
               </div>
             </motion.div>
@@ -313,7 +321,7 @@ export default function HowItWorks() {
           viewport={{ once: true, amount: 0.5 }}
           variants={fadeUp}
         >
-          <h2 className="text-2xl font-bold mb-2">Ready to protect your tank?</h2>
+          <h2 className="text-2xl font-normal mb-2 text-[#EDE8E0]" style={{ fontFamily: "var(--font-dm-serif), Georgia, serif" }}>Ready to protect your tank?</h2>
           <p className="text-[#7FA8BF] mb-6">Join the waitlist for early access.</p>
           <WaitlistForm className="max-w-md mx-auto" />
         </motion.div>
