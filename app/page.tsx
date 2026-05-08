@@ -77,12 +77,28 @@ function LiveMonitor() {
               }}
             />
 
-            {/* Detection box — clownfish (center-left) */}
+            {/* Detection box — clownfish #1 (upper-left) */}
             <motion.div
               className="absolute"
-              style={{ left: "26%", top: "38%", width: 68, height: 48 }}
+              style={{ left: "5%", top: "16%", width: 80, height: 60 }}
               animate={{ opacity: [0.6, 1, 0.6] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div
+                className="w-full h-full"
+                style={{ border: "1px solid rgba(61,220,120,0.7)", borderRadius: 4 }}
+              />
+              <span className="absolute -top-4 left-0 text-[7px] text-emerald-400 font-mono whitespace-nowrap">
+                Clownfish ✓
+              </span>
+            </motion.div>
+
+            {/* Detection box — clownfish #2 (lower-right) */}
+            <motion.div
+              className="absolute"
+              style={{ left: "50%", top: "48%", width: 78, height: 58 }}
+              animate={{ opacity: [0.7, 1, 0.7] }}
+              transition={{ duration: 3.8, repeat: Infinity, delay: 0.9, ease: "easeInOut" }}
             >
               <div
                 className="w-full h-full"
